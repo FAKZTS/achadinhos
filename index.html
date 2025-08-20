@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Digital - Agosto 2025</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">🛍️ Catálogo Digital</div>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#mercado-livre">Mercado Livre</a></li>
+                    <li><a href="#shopee">Shopee</a></li>
+                    <li><a href="#amazon">Amazon</a></li>
+                    <li><a href="#magalu">Magalu</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner">
+        <h1>Catálogo de Produtos</h1>
+        <p>Agosto 2025 • Os melhores produtos das principais plataformas</p>
+    </section>
+
+    <!-- Search Bar -->
+    <section class="search-container">
+        <div class="search-bar">
+            <input type="text" class="search-input" id="searchInput" placeholder="Buscar produtos...">
+            <button class="search-btn" id="searchBtn">🔍</button>
+        </div>
+    </section>
+
+    <!-- Mercado Livre Section -->
+    <section id="mercado-livre" class="platform-section mercado-livre">
+        <div class="platform-header">
+            <h2 class="platform-title">
+                <div class="platform-icon">🛒</div>
+                Mercado Livre
+            </h2>
+        </div>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="todos">Todos</button>
+            <button class="category-btn" data-category="eletronicos">Eletrônicos</button>
+            <button class="category-btn" data-category="moda">Moda</button>
+            <button class="category-btn" data-category="casa">Casa</button>
+            <button class="category-btn" data-category="beleza">Beleza</button>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card" data-category="eletronicos">
+                <div class="product-image">📱</div>
+                <div class="product-content">
+                    <h3 class="product-name">Smartphone Galaxy Ultra</h3>
+                    <p class="product-description">Smartphone com tela AMOLED de 6.8", câmera tripla de 108MP e bateria de 5000mAh. Ideal para fotos e jogos.</p>
+                    <div class="product-price">R$ 2.199,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">(4.8/5) 2.543 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('mercadolivre')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="moda">
+                <div class="product-image">👕</div>
+                <div class="product-content">
+                    <h3 class="product-name">Camiseta Premium Algodão</h3>
+                    <p class="product-description">Camiseta 100% algodão com fit moderno, disponível em várias cores. Material macio e respirável.</p>
+                    <div class="product-price">R$ 89,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐☆</span>
+                        <span class="rating-text">(4.2/5) 856 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('mercadolivre')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="casa">
+                <div class="product-image">🏠</div>
+                <div class="product-content">
+                    <h3 class="product-name">Kit Utensílios Cozinha</h3>
+                    <p class="product-description">Conjunto completo com 12 utensílios de cozinha em aço inox. Inclui suporte de madeira elegante.</p>
+                    <div class="product-price">R$ 159,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">(4.7/5) 1.234 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('mercadolivre')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="beleza">
+                <div class="product-image">💄</div>
+                <div class="product-content">
+                    <h3 class="product-name">Kit Maquiagem Completo</h3>
+                    <p class="product-description">Kit com 20 itens essenciais para maquiagem, incluindo pincéis, sombras e batom. Perfeito para iniciantes.</p>
+                    <div class="product-price">R$ 129,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐☆</span>
+                        <span class="rating-text">(4.3/5) 967 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('mercadolivre')">Comprar Agora</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopee Section -->
+    <section id="shopee" class="platform-section shopee">
+        <div class="platform-header">
+            <h2 class="platform-title">
+                <div class="platform-icon">🛍️</div>
+                Shopee
+            </h2>
+        </div>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="todos">Todos</button>
+            <button class="category-btn" data-category="eletronicos">Eletrônicos</button>
+            <button class="category-btn" data-category="moda">Moda</button>
+            <button class="category-btn" data-category="casa">Casa</button>
+            <button class="category-btn" data-category="beleza">Beleza</button>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card" data-category="eletronicos">
+                <div class="product-image">⌚</div>
+                <div class="product-content">
+                    <h3 class="product-name">Smartwatch Fitness Pro</h3>
+                    <p class="product-description">Relógio inteligente com monitoramento de saúde, GPS e resistência à água. Bateria de 7 dias.</p>
+                    <div class="product-price">R$ 349,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">(4.6/5) 1.876 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('shopee')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="moda">
+                <div class="product-image">👟</div>
+                <div class="product-content">
+                    <h3 class="product-name">Tênis Esportivo Ultra</h3>
+                    <p class="product-description">Tênis com tecnologia de amortecimento avançado, ideal para corrida e caminhada. Design moderno e confortável.</p>
+                    <div class="product-price">R$ 199,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐☆</span>
+                        <span class="rating-text">(4.4/5) 2.103 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('shopee')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="casa">
+                <div class="product-image">💡</div>
+                <div class="product-content">
+                    <h3 class="product-name">Lâmpada LED Inteligente</h3>
+                    <p class="product-description">Lâmpada controlada por app com 16 milhões de cores, compatível com Alexa e Google. Economia de energia.</p>
+                    <div class="product-price">R$ 79,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">(4.8/5) 645 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('shopee')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="beleza">
+                <div class="product-image">🧴</div>
+                <div class="product-content">
+                    <h3 class="product-name">Sérum Anti-idade Premium</h3>
+                    <p class="product-description">Sérum com ácido hialurônico e vitamina C para hidratação profunda e redução de rugas. Resultados visíveis.</p>
+                    <div class="product-price">R$ 89,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">(4.7/5) 1.432 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('shopee')">Comprar Agora</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amazon Section -->
+    <section id="amazon" class="platform-section amazon">
+        <div class="platform-header">
+            <h2 class="platform-title">
+                <div class="platform-icon">📦</div>
+                Amazon
+            </h2>
+        </div>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="todos">Todos</button>
+            <button class="category-btn" data-category="eletronicos">Eletrônicos</button>
+            <button class="category-btn" data-category="moda">Moda</button>
+            <button class="category-btn" data-category="casa">Casa</button>
+            <button class="category-btn" data-category="beleza">Beleza</button>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card" data-category="eletronicos">
+                <div class="product-image">🎧</div>
+                <div class="product-content">
+                    <h3 class="product-name">Fone Bluetooth Premium</h3>
+                    <p class="product-description">Fone over-ear com cancelamento de ruído ativo, 30h de bateria e som de alta qualidade. Ideal para trabalho.</p>
+                    <div class="product-price">R$ 599,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">(4.9/5) 3.287 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('amazon')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="moda">
+                <div class="product-image">🧥</div>
+                <div class="product-content">
+                    <h3 class="product-name">Jaqueta Impermeável Pro</h3>
+                    <p class="product-description">Jaqueta com tecnologia impermeável e respirável, perfeita para atividades outdoor. Disponível em várias cores.</p>
+                    <div class="product-price">R$ 299,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐☆</span>
+                        <span class="rating-text">(4.5/5) 1.654 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('amazon')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="casa">
+                <div class="product-image">☕</div>
+                <div class="product-content">
+                    <h3 class="product-name">Cafeteira Expresso Automática</h3>
+                    <p class="product-description">Cafeteira com moedor integrado, 15 receitas programáveis e sistema de aquecimento rápido. Café perfeito sempre.</p>
+                    <div class="product-price">R$ 1.299,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">(4.8/5) 892 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('amazon')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="beleza">
+                <div class="product-image">🪒</div>
+                <div class="product-content">
+                    <h3 class="product-name">Kit Cuidados Masculinos</h3>
+                    <p class="product-description">Kit completo com barbeador elétrico, aparador e produtos para cuidados com barba. Qualidade profissional.</p>
+                    <div class="product-price">R$ 249,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐☆</span>
+                        <span class="rating-text">(4.3/5) 1.567 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('amazon')">Comprar Agora</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Magalu Section -->
+    <section id="magalu" class="platform-section magalu">
+        <div class="platform-header">
+            <h2 class="platform-title">
+                <div class="platform-icon">🏪</div>
+                Magalu
+            </h2>
+        </div>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="todos">Todos</button>
+            <button class="category-btn" data-category="eletronicos">Eletrônicos</button>
+            <button class="category-btn" data-category="moda">Moda</button>
+            <button class="category-btn" data-category="casa">Casa</button>
+            <button class="category-btn" data-category="beleza">Beleza</button>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card" data-category="eletronicos">
+                <div class="product-image">📺</div>
+                <div class="product-content">
+                    <h3 class="product-name">Smart TV 55" 4K Ultra</h3>
+                    <p class="product-description">Smart TV com resolução 4K, HDR, Wi-Fi integrado e sistema operacional Android. Entretenimento completo.</p>
+                    <div class="product-price">R$ 1.899,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">(4.7/5) 2.341 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('magalu')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="moda">
+                <div class="product-image">👗</div>
+                <div class="product-content">
+                    <h3 class="product-name">Vestido Elegante Social</h3>
+                    <p class="product-description">Vestido midi em tecido nobre, corte moderno e elegante. Perfeito para ocasiões especiais e trabalho.</p>
+                    <div class="product-price">R$ 179,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐☆</span>
+                        <span class="rating-text">(4.2/5) 756 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('magalu')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="casa">
+                <div class="product-image">🔥</div>
+                <div class="product-content">
+                    <h3 class="product-name">Air Fryer Digital 5L</h3>
+                    <p class="product-description">Fritadeira elétrica sem óleo com painel digital, 8 programas automáticos e timer. Cozinha saudável e rápida.</p>
+                    <div class="product-price">R$ 399,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">(4.6/5) 1.823 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('magalu')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="beleza">
+                <div class="product-image">💅</div>
+                <div class="product-content">
+                    <h3 class="product-name">Kit Manicure Professional</h3>
+                    <p class="product-description">Kit completo para manicure com alicate, lixas, esmaltes e acessórios. Qualidade salon em casa.</p>
+                    <div class="product-price">R$ 159,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐☆</span>
+                        <span class="rating-text">(4.4/5) 1.098 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('magalu')">Comprar Agora</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p>📞 (11) 99999-9999</p>
+                <p>✉️ contato@catalogodigital.com.br</p>
+                <p>📍 São Paulo, SP - Brasil</p>
+            </div>
+            <div class="footer-section">
+                <h3>Plataformas</h3>
+                <p><a href="#mercado-livre">Mercado Livre</a></p>
+                <p><a href="#shopee">Shopee</a></p>
+                <p><a href="#amazon">Amazon</a></p>
+                <p><a href="#magalu">Magazine Luiza</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Sobre</h3>
+                <p>Catálogo digital com os melhores produtos das principais plataformas de e-commerce do Brasil.</p>
+                <p>Encontre ofertas imperdíveis e produtos de qualidade.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Catálogo Digital. Todos os direitos reservados. | Desenvolvido com ❤️ para facilitar suas compras</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
