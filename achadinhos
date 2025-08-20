@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Digital - Agosto 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Banner */
+        .banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 120px 2rem 60px;
+            margin-top: 80px;
+        }
+
+        .banner h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .banner p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        /* Search Bar */
+        .search-container {
+            background: white;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .search-bar {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1rem;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background: #5a67d8;
+        }
+
+        /* Platform Sections */
+        .platform-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .platform-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .platform-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .platform-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* Platform Colors */
+        .mercado-livre {
+            background-color: #fff159;
+            color: #333;
+        }
+
+        .mercado-livre .platform-icon {
+            background-color: #fff159;
+            color: #333;
+        }
+
+        .shopee {
+            background-color: #ff6200;
+            color: white;
+        }
+
+        .shopee .platform-icon {
+            background-color: #ff6200;
+        }
+
+        .amazon {
+            background-color: #232f3e;
+            color: white;
+        }
+
+        .amazon .platform-icon {
+            background-color: #ff9900;
+            color: #232f3e;
+        }
+
+        .magalu {
+            background-color: #0f2027;
+            color: white;
+        }
+
+        .magalu .platform-icon {
+            background-color: #8b44ff;
+        }
+
+        /* Categories */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #ddd;
+            background: white;
+            color: #333;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #ccc;
+            position: relative;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .product-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stars {
+            color: #ffc107;
+        }
+
+        .rating-text {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .buy-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .buy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #ecf0f1;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: #3498db;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 1rem;
+            color: #95a5a6;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(102, 126, 234, 0.95);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0.5rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .banner h1 {
+                font-size: 2rem;
+            }
+
+            .platform-title {
+                font-size: 2rem;
+            }
+
+            .categories {
+                gap: 0.5rem;
+            }
+
+            .category-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .banner {
+                padding: 100px 1rem 40px;
+            }
+
+            .banner h1 {
+                font-size: 1.8rem;
+            }
+
+            .platform-section {
+                padding: 2rem 1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Hidden class for filtering */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">🛍️ Catálogo Digital</div>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#mercado-livre">Mercado Livre</a></li>
+                    <li><a href="#shopee">Shopee</a></li>
+                    <li><a href="#amazon">Amazon</a></li>
+                    <li><a href="#magalu">Magalu</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner">
+        <h1>Catálogo de Produtos</h1>
+        <p>Agosto 2025 • Os melhores produtos das principais plataformas</p>
+    </section>
+
+    <!-- Search Bar -->
+    <section class="search-container">
+        <div class="search-bar">
+            <input type="text" class="search-input" id="searchInput" placeholder="Buscar produtos...">
+            <button class="search-btn" id="searchBtn">🔍</button>
+        </div>
+    </section>
+
+    <!-- Mercado Livre Section -->
+    <section id="mercado-livre" class="platform-section mercado-livre">
+        <div class="platform-header">
+            <h2 class="platform-title">
+                <div class="platform-icon">🛒</div>
+                Mercado Livre
+            </h2>
+        </div>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="todos">Todos</button>
+            <button class="category-btn" data-category="eletronicos">Eletrônicos</button>
+            <button class="category-btn" data-category="moda">Moda</button>
+            <button class="category-btn" data-category="casa">Casa</button>
+            <button class="category-btn" data-category="beleza">Beleza</button>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card" data-category="eletronicos">
+                <div class="product-image">📱</div>
+                <div class="product-content">
+                    <h3 class="product-name">Smartphone Galaxy Ultra</h3>
+                    <p class="product-description">Smartphone com tela AMOLED de 6.8", câmera tripla de 108MP e bateria de 5000mAh. Ideal para fotos e jogos.</p>
+                    <div class="product-price">R$ 2.199,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">(4.8/5) 2.543 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('mercadolivre')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="moda">
+                <div class="product-image">👕</div>
+                <div class="product-content">
+                    <h3 class="product-name">Camiseta Premium Algodão</h3>
+                    <p class="product-description">Camiseta 100% algodão com fit moderno, disponível em várias cores. Material macio e respirável.</p>
+                    <div class="product-price">R$ 89,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐☆</span>
+                        <span class="rating-text">(4.2/5) 856 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('mercadolivre')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="casa">
+                <div class="product-image">🏠</div>
+                <div class="product-content">
+                    <h3 class="product-name">Kit Utensílios Cozinha</h3>
+                    <p class="product-description">Conjunto completo com 12 utensílios de cozinha em aço inox. Inclui suporte de madeira elegante.</p>
+                    <div class="product-price">R$ 159,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">(4.7/5) 1.234 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('mercadolivre')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="beleza">
+                <div class="product-image">💄</div>
+                <div class="product-content">
+                    <h3 class="product-name">Kit Maquiagem Completo</h3>
+                    <p class="product-description">Kit com 20 itens essenciais para maquiagem, incluindo pincéis, sombras e batom. Perfeito para iniciantes.</p>
+                    <div class="product-price">R$ 129,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐☆</span>
+                        <span class="rating-text">(4.3/5) 967 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('mercadolivre')">Comprar Agora</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopee Section -->
+    <section id="shopee" class="platform-section shopee">
+        <div class="platform-header">
+            <h2 class="platform-title">
+                <div class="platform-icon">🛍️</div>
+                Shopee
+            </h2>
+        </div>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="todos">Todos</button>
+            <button class="category-btn" data-category="eletronicos">Eletrônicos</button>
+            <button class="category-btn" data-category="moda">Moda</button>
+            <button class="category-btn" data-category="casa">Casa</button>
+            <button class="category-btn" data-category="beleza">Beleza</button>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card" data-category="eletronicos">
+                <div class="product-image">⌚</div>
+                <div class="product-content">
+                    <h3 class="product-name">Smartwatch Fitness Pro</h3>
+                    <p class="product-description">Relógio inteligente com monitoramento de saúde, GPS e resistência à água. Bateria de 7 dias.</p>
+                    <div class="product-price">R$ 349,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">(4.6/5) 1.876 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('shopee')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="moda">
+                <div class="product-image">👟</div>
+                <div class="product-content">
+                    <h3 class="product-name">Tênis Esportivo Ultra</h3>
+                    <p class="product-description">Tênis com tecnologia de amortecimento avançado, ideal para corrida e caminhada. Design moderno e confortável.</p>
+                    <div class="product-price">R$ 199,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐☆</span>
+                        <span class="rating-text">(4.4/5) 2.103 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('shopee')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="casa">
+                <div class="product-image">💡</div>
+                <div class="product-content">
+                    <h3 class="product-name">Lâmpada LED Inteligente</h3>
+                    <p class="product-description">Lâmpada controlada por app com 16 milhões de cores, compatível com Alexa e Google. Economia de energia.</p>
+                    <div class="product-price">R$ 79,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">(4.8/5) 645 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('shopee')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="beleza">
+                <div class="product-image">🧴</div>
+                <div class="product-content">
+                    <h3 class="product-name">Sérum Anti-idade Premium</h3>
+                    <p class="product-description">Sérum com ácido hialurônico e vitamina C para hidratação profunda e redução de rugas. Resultados visíveis.</p>
+                    <div class="product-price">R$ 89,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">(4.7/5) 1.432 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('shopee')">Comprar Agora</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amazon Section -->
+    <section id="amazon" class="platform-section amazon">
+        <div class="platform-header">
+            <h2 class="platform-title">
+                <div class="platform-icon">📦</div>
+                Amazon
+            </h2>
+        </div>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="todos">Todos</button>
+            <button class="category-btn" data-category="eletronicos">Eletrônicos</button>
+            <button class="category-btn" data-category="moda">Moda</button>
+            <button class="category-btn" data-category="casa">Casa</button>
+            <button class="category-btn" data-category="beleza">Beleza</button>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card" data-category="eletronicos">
+                <div class="product-image">🎧</div>
+                <div class="product-content">
+                    <h3 class="product-name">Fone Bluetooth Premium</h3>
+                    <p class="product-description">Fone over-ear com cancelamento de ruído ativo, 30h de bateria e som de alta qualidade. Ideal para trabalho.</p>
+                    <div class="product-price">R$ 599,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">(4.9/5) 3.287 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('amazon')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="moda">
+                <div class="product-image">🧥</div>
+                <div class="product-content">
+                    <h3 class="product-name">Jaqueta Impermeável Pro</h3>
+                    <p class="product-description">Jaqueta com tecnologia impermeável e respirável, perfeita para atividades outdoor. Disponível em várias cores.</p>
+                    <div class="product-price">R$ 299,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐☆</span>
+                        <span class="rating-text">(4.5/5) 1.654 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('amazon')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="casa">
+                <div class="product-image">☕</div>
+                <div class="product-content">
+                    <h3 class="product-name">Cafeteira Expresso Automática</h3>
+                    <p class="product-description">Cafeteira com moedor integrado, 15 receitas programáveis e sistema de aquecimento rápido. Café perfeito sempre.</p>
+                    <div class="product-price">R$ 1.299,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">(4.8/5) 892 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('amazon')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="beleza">
+                <div class="product-image">🪒</div>
+                <div class="product-content">
+                    <h3 class="product-name">Kit Cuidados Masculinos</h3>
+                    <p class="product-description">Kit completo com barbeador elétrico, aparador e produtos para cuidados com barba. Qualidade profissional.</p>
+                    <div class="product-price">R$ 249,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐☆</span>
+                        <span class="rating-text">(4.3/5) 1.567 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('amazon')">Comprar Agora</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Magalu Section -->
+    <section id="magalu" class="platform-section magalu">
+        <div class="platform-header">
+            <h2 class="platform-title">
+                <div class="platform-icon">🏪</div>
+                Magalu
+            </h2>
+        </div>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="todos">Todos</button>
+            <button class="category-btn" data-category="eletronicos">Eletrônicos</button>
+            <button class="category-btn" data-category="moda">Moda</button>
+            <button class="category-btn" data-category="casa">Casa</button>
+            <button class="category-btn" data-category="beleza">Beleza</button>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card" data-category="eletronicos">
+                <div class="product-image">📺</div>
+                <div class="product-content">
+                    <h3 class="product-name">Smart TV 55" 4K Ultra</h3>
+                    <p class="product-description">Smart TV com resolução 4K, HDR, Wi-Fi integrado e sistema operacional Android. Entretenimento completo.</p>
+                    <div class="product-price">R$ 1.899,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">(4.7/5) 2.341 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('magalu')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="moda">
+                <div class="product-image">👗</div>
+                <div class="product-content">
+                    <h3 class="product-name">Vestido Elegante Social</h3>
+                    <p class="product-description">Vestido midi em tecido nobre, corte moderno e elegante. Perfeito para ocasiões especiais e trabalho.</p>
+                    <div class="product-price">R$ 179,90</div>
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐☆</span>
+                        <span class="rating-text">(4.2/5) 756 avaliações</span>
+                    </div>
+                    <button class="buy-btn" onclick="openLink('magalu')">Comprar Agora</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="casa">
+                <div class="product-image">🔥</div>
+                <div class="product-content">
+                    <h3 class="product-name">Air Fryer Digital 5L</h3>
+                    <p class="product-description">Fritadeira elétrica sem óleo com painel digital, 8 programas automáticos e timer. Cozinha saudável e r
